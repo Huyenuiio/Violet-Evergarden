@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">	
+    <title>Violet Evergarden</title>
+    <link rel="icon" href="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21827-10F6m50H4GJK.png" type="png">
+    <style>
+    * {
+        margin: 0; padding: 0;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        font-weight: normal;
+        font-family: 'Quicksand', sans-serif;
+
+    }
+body {
+    background: #0f0f0f;
+    font-family: 'Quicksand', sans-serif;
+}
+.heading {
+    color: #728197;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;  
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 5px 5%;
+
+}
+.container .main-video {
+    background: #1a1a1a;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.container .main-video video {
+    width: 100%;
+    border-radius: 5px;
+}
+.container .main-video  .title {
+    background: rgb(33 33 33);
+    color: rgb(255, 250, 250);
+    font-size: 23px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.container .video-list {
+    background: rgb(33 33 33);
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll;
+
+}
+
+.container .video-list::-webkit-scrollbar {
+    width: 7px;
+}
+.container .video-list::-webkit-scrollbar-track {
+    background: #ccc;
+    border-radius: 50px; 
+}
+.container .video-list::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 50px; 
+}
+
+
+
+.container .video-list .vid video {
+    width: 100px;
+    border-radius: 5px;
+
+}
+
+.container .video-list .vid {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+}
+.container .video-list .vid:hover{
+    background: rgb(39 39 39);
+}
+
+
+
+.container .video-list .vid.active{
+    background: rgb(26 35 49);
+
+}
+.container .video-list .vid.active .title{
+   color: #fff;
+}
+.container .video-list .vid .title{
+   color: hsla(0,0%,100%,.5);
+   font-size: 17px;
+}
+@media (max-width:991px){   
+    .container {
+    grid-template-columns: 1.5fr 1fr;
+    padding: 10px;
+}
+}
+@media (max-width:768px){
+    .container {
+    grid-template-columns: 1fr;
+}
+}
+#myVideo {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+button {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555555; 
+  color: white;
+}
+
+#timeline {
+    display: none; /* Hide timeline */
+}
+
+/* ------------------------------------------------hieu-ung-chuyen-dong-luot-len-luot-xuong---------------------------------------------------------------------- */
+
+.container, .video-list, .heading {
+    /* Thời gian chuyển đổi */
+    transition: all 0.5s ease-in-out;
+}
+
+.container:hover, .video-list:hover, .heading:hover {
+    /* Hiệu ứng lướt lên */
+    transform: translateY(-10px);
+}
+
+.container:active, .video-list:active, .heading:active {
+    /* Hiệu ứng lướt xuống */
+    transform: translateY(10px);
+}
+/* _____________________________________________________________________________________________________________________________ */
+
+    </style>
+</head>
+<body>
+    <h3 class="heading">Violet Evergarden</h3>
+    <div class="container">
+        <div class="main-video">
+            <div class="video">
+                <video id="myVideo"  controls muted autoplay playsinline poster="https://content.jwplatform.com/videos/yxwXW4Tz-1920.mp4"  src="https://content.jwplatform.com/videos/yxwXW4Tz-1920.mp4">
+                    <source src="
+                    " size="720">
+                        <source src=""
+                    size="1080">
+                </video>
+<input id="timeline" type="range" min="0" max="100" value="0">
+                <div class="title">Tập 1 - "Ta yêu em" và Tự động thủ kí nhân hình</div>
+            </div>
+        </div>
+
+    <!-- phan list video -->
+    <div class="video-list">
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/yxwXW4Tz-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/yxwXW4Tz-1920.jpg"></video>
+            <h3 class="title">Tập 1 - "Ta yêu em" và Tự động thủ kí nhân hình</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/YVL9qNF7-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/YVL9qNF7-1920.jpg"></video>
+            <h3 class="title">Tập 2 - "Sẽ không quay về nữa"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/94ZqErvK-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/94ZqErvK-1920.jpg"></video>
+            <h3 class="title">Tập 3 - 'Vậy là em đã trở thành một Tự Động Thủ Kí Nhân Hình chuẩn mực rồi đấy'</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/RK2BfMgT-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/RK2BfMgT-1920.jpg"></video>
+            <h3 class="title">Tập 4 - "Em nào phải thứ công cụ gì, mà là một người rất tương xứng với cái tên này."</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/DB4rM5Fp-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/DB4rM5Fp-1920.jpg"></video>
+            <h3 class="title">Tập 4.5 - "Chắc chắn, cái ngày cháu hiểu được "YÊU" là gì cũng sẽ đến thôi"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/1nODE8o1-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/1nODE8o1-1920.jpg"></video>
+            <h3 class="title">Tập 5 - "Ngươi lại đi viết thư gắn kết mọi người với nhau sao?"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/Nx0kJNOG-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/Nx0kJNOG-1920.jpg"></video>
+            <h3 class="title">Tập 6 - "Tại nơi nào đó, dưới bầu trời đầy sao"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/rGkcyklD-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/rGkcyklD-1920.jpg"></video>
+            <h3 class="title">Tập 7</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/SYySeuL2-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/SYySeuL2-1920.jpg"></video>
+            <h3 class="title">Tập 8</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/tvDK9dlK-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/tvDK9dlK-1920.jpg"></video>
+            <h3 class="title">Tập 9 - Violet Evergarden</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/do2ulkz9-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/do2ulkz9-1920.jpg"></video>
+            <h3 class="title">Tập 10 - "Người thân yêu vẫn sẽ luôn dõi theo mình"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/k5MlLwZw-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/k5MlLwZw-1920.jpg"></video>
+            <h3 class="title">Tập 11 - "Tôi không muốn có bất kì ai phải chết nữa"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/SS2kD2uy-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/SS2kD2uy-1920.jpg"></video>
+            <h3 class="title">Tập 12</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/UUW3BCrl-1920.mp4" poster="https://cdn.jwplayer.com/thumbs/UUW3BCrl-1920.jpg"></video>
+            <h3 class="title">Tập 13 - Tự Động Thủ Kí Nhân Hình và "Ta yêu em"</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/zuz8h0Sl-1920.mp4" poster="https://i.imgur.com/9JX7Ky1.png"></video>
+            <h3 class="title">Violet Evergarden: Hồi ức không quên</h3>
+            </div>
+            <div class="vid active">
+                <video src="https://content.jwplatform.com/videos/kLSgRFB1-1920.mp4" poster="https://i.imgur.com/YjsF9wO.png"></video>
+            <h3 class="title">Violet Evergarden: the Movie</h3>
+            </div>
+    </div>
+    
+</div>
+
+
+<script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+      <script>
+var vid = document.getElementById("myVideo");
+var playPauseBtn = document.getElementById("playPauseBtn");
+var timeline = document.getElementById("timeline");
+
+vid.ontimeupdate = function() {updateTimeline()};
+
+function playPauseVid() { 
+    if (vid.paused) {
+        vid.play();
+        playPauseBtn.innerHTML = "Pause";
+    } else {
+        vid.pause();
+        playPauseBtn.innerHTML = "Play";
+    }
+} 
+
+function increaseVol() {
+    if(vid.volume < 1) vid.volume += 0.1;
+}
+
+function decreaseVol() {
+    if(vid.volume > 0) vid.volume -= 0.1;
+}
+
+function toggleFullscreen() {
+    if (vid.requestFullscreen) {
+        vid.requestFullscreen();
+    } else if (vid.mozRequestFullScreen) { /* Firefox */
+        vid.mozRequestFullScreen();
+    } else if (vid.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        vid.webkitRequestFullscreen();
+    } else if (vid.msRequestFullscreen) { /* IE/Edge */
+        vid.msRequestFullscreen();
+    }
+}
+
+function updateTimeline() {
+    var value = (100 / vid.duration) * vid.currentTime;
+    timeline.value = value;
+}
+
+timeline.oninput = function() {
+    var currentTime = this.value * vid.duration / 100;
+    vid.currentTime = currentTime;
+}
+
+const player = new Plyr('#myVideo', {
+    quality: { default: '1080', options: ['1080', '720'] }
+});
+
+
+// _____________________________________________Ham-danh-cho-cac-phim-co-poster-dep___________________________________________________________________________________________________________________________
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title   = document.querySelector('.main-video .title');
+    
+listVideo.forEach(video =>{
+    video.onclick = () => {
+        listVideo.forEach(vid => vid.classList.remove('active'));
+        video.classList.add('active');
+        if(video.classList.contains('active')){
+            let src = video.children[0].getAttribute('src');
+            let poster = video.children[0].getAttribute('poster'); // Lấy đường dẫn poster
+            mainVideo.src = src;
+            mainVideo.poster = poster; // Đặt thuộc tính poster của video chính
+            let text = video.children[1].innerHTML;
+            title.innerHTML = text;
+        };
+    };
+});
+
+// -----------------------------------------------------su-kien-ghi-nho-video----------------------------------------------------------------------------------------------------
+
+
+
+// Khi một video được chọn
+document.querySelectorAll('.vid').forEach(function(vid) {
+    vid.addEventListener('click', function() {
+        // Lưu trữ URL video và tiêu đề vào localStorage
+        var videoUrl = this.querySelector('video').getAttribute('src');
+        var title = this.querySelector('.title').textContent;
+        localStorage.setItem('lastSelectedVideo', JSON.stringify({url: videoUrl, title: title}));
+    });
+});
+
+// Khi tải lại trang web
+window.addEventListener('DOMContentLoaded', function() {
+    var lastSelectedVideo = JSON.parse(localStorage.getItem('lastSelectedVideo'));
+    if (lastSelectedVideo) {
+        // Tìm video tương ứng và đặt nó thành video được chọn
+        document.querySelectorAll('.vid').forEach(function(vid) {
+            var videoUrl = vid.querySelector('video').getAttribute('src');
+            if (videoUrl === lastSelectedVideo.url) {
+                vid.classList.add('active');
+                // Cập nhật tiêu đề
+                document.querySelector('.title').textContent = lastSelectedVideo.title;
+                // Kích hoạt sự kiện click chuột
+                vid.click();
+            } else {
+                vid.classList.remove('active');
+            }
+        });
+    }
+});
+
+
+
+//--------------------------------------------------phan ghi nho thoi gian video-----------------------------------------------------------------------
+
+// Lấy tham chiếu đến video
+var video = document.getElementById('myVideo');
+
+// Khi video được tải, kiểm tra xem có thời điểm xem cuối cùng không
+video.addEventListener('loadedmetadata', function() {
+    var lastWatchedTime = localStorage.getItem('lastWatchedTime');
+    if (lastWatchedTime) {
+        video.currentTime = lastWatchedTime;
+    }
+});
+
+// Khi video bị tạm dừng (ví dụ: khi người xem đóng trang web)
+video.addEventListener('pause', function() {
+    localStorage.setItem('lastWatchedTime', video.currentTime);
+});
+//---------------------------------------------------------end----------------------- ---------------------------------------------------------
+
+
+    </script>
+</body>
+</html>
